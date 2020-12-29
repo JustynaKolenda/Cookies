@@ -9,14 +9,12 @@ const {width, height} = Dimensions.get('window')
 
 const CookieClik = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
-    const handlePress = useCallback(()=>{
+    const handleChange = ()=> {
         CounterStore.increment()
-    },[])
-
-    
+    }
     return(
         <View>
-            <Click onPress={handlePress}>
+            <Click onPress={handleChange}>
                 <Cookie source={{uri: 'bigcookie'}}/> 
             </Click>
         </View>
