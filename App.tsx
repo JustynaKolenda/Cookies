@@ -12,19 +12,20 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-
-import CookieClik from './src/view/CookieClik';
+import CookieScreen from './src/view/CookieScreen';
+import { CounterStoreContext, CounterStore } from './src/variables/store';
 
 declare const global: {HermesInternal: null | {}};
+const store = new CounterStore()
 
 const App = () => {
   return (
-    <>
+    <CounterStoreContext.Provider value={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-          <CookieClik/>
+          <CookieScreen/>
       </SafeAreaView>
-    </>
+    </CounterStoreContext.Provider>
   );
 };
 

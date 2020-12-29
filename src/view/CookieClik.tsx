@@ -1,41 +1,25 @@
-import React, { useState } from 'react';
-import { Dimensions, Text, View, Animated, Easing} from 'react-native';
+import React, { useCallback, useContext } from 'react';
+import { Dimensions, Animated, View, Text,} from 'react-native';
 import styled from 'styled-components/native';
-
+import { observer } from 'mobx-react-lite'
+import { CounterStoreContext } from '../variables/store';
+ 
 const {width, height} = Dimensions.get('window')
 
-const CookieClik = () => {
-    const [count, setCount] = useState(0);
-    const handleIncrement = () => {
-        setCount(prevCount => prevCount + 1);
-    };
 
-
+const CookieClik = observer(() => {
+    const CounterStore = useContext(CounterStoreContext)
+    const handlePress = useCallback(()=>{
+        CounterStore.increment()
+    },[])
+    
     return(
-        <ViewCookie>
-           
-                <State>{count} cookies</State>
-                <Click onPress={handleIncrement}>
-                    <Cookie source={{uri: 'bigcookie'}}/> 
-                </Click>
-          
-        </ViewCookie>
-    )
-}
-
-const ViewCookie = styled.View({
-    backgroundColor: '#000000',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height:'100%'
-})
-
-const State = styled.Text({
-    color: '#ffffff',
-    fontSize: 28,
-    fontWeight: 'bold',
-    position: 'absolute',
-    top: 60
+        <View>
+            <Click onPress={handlePress}>
+                <Cookie source={{uri: 'bigcookie'}}/> 
+            </Click>
+        </View>
+    )    
 })
 
 const Click = styled.TouchableOpacity({
