@@ -37,6 +37,6 @@ const Level = styled.Text({
     fontSize: 28,
     fontWeight: 'bold',
     position: 'absolute',
-    top: 80
+    top: 100
 })
 export default CookieScreen

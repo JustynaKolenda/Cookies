@@ -12,6 +12,7 @@ const CookieClik = observer(() => {
     const handlePress = useCallback(()=>{
         CounterStore.increment()
     },[])
+
     
     return(
         <View>
