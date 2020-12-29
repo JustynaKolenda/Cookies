@@ -4,27 +4,16 @@
  *
  * Generated with the TypeScript template
  * https://github.com/react-native-community/react-native-template-typescript
- *
+ *<a href='https://pl.freepik.com/vectors/streszczenie'>Streszczenie plik wektorowy utworzone przez vector_corp - pl.freepik.com</a>
  * @format
  */
 
 import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import CookieClik from './src/view/CookieClik';
 
 declare const global: {HermesInternal: null | {}};

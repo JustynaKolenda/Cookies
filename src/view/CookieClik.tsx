@@ -11,7 +11,6 @@ const CookieClik = () => {
     };
 
 
-    
     return(
         <ViewCookie>
             <Image source={{uri:'stars'}}>
@@ -37,22 +36,17 @@ const Image = styled.ImageBackground({
     justifyContent:'center'
 })
 const State = styled.Text({
-    color: '#000000',
+    color: '#ffffff',
     fontSize: 28,
     fontWeight: 'bold',
     position: 'absolute',
-    top: 40
+    top: 60
 })
 
 const Click = styled.TouchableOpacity({
     alignItems:'center'
 })
 
-let scaleValue = new Animated.Value(0);
-const cookieScale = scaleValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [1, 1.1, 1.2]
-});
 
 const Cookie = styled(Animated.Image)({
     width: width/2,
