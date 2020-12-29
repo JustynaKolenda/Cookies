@@ -4,7 +4,6 @@
  *
  * Generated with the TypeScript template
  * https://github.com/react-native-community/react-native-template-typescript
- *<a href='https://pl.freepik.com/vectors/streszczenie'>Streszczenie plik wektorowy utworzone przez vector_corp - pl.freepik.com</a>
  * @format
  */
 

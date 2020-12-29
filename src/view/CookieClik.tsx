@@ -13,12 +13,12 @@ const CookieClik = () => {
 
     return(
         <ViewCookie>
-            <Image source={{uri:'stars'}}>
+           
                 <State>{count} cookies</State>
                 <Click onPress={handleIncrement}>
                     <Cookie source={{uri: 'bigcookie'}}/> 
                 </Click>
-            </Image>
+          
         </ViewCookie>
     )
 }
@@ -27,14 +27,9 @@ const ViewCookie = styled.View({
     backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
+    height:'100%'
 })
-const Image = styled.ImageBackground({
-    resizeMode: "cover",
-    width: '100%',
-    height:'100%',
-    alignItems:'center',
-    justifyContent:'center'
-})
+
 const State = styled.Text({
     color: '#ffffff',
     fontSize: 28,
