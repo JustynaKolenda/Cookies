@@ -5,7 +5,6 @@ import { CounterStoreContext } from '../variables/store';
 import CookieClik from './CookieClik';
 import { observer } from 'mobx-react-lite'
 
-
 const CookieScreen = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
    
