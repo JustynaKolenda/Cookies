@@ -17,7 +17,12 @@ export class CounterStore {
   }
 
   get level(){
-    return this.count * 2
+    if(this.count < 10){
+      return 1
+    }
+    
+    let temp = Math.floor(this.count/10);
+    return temp.toString(2).length + 1;
   }
 
 }

@@ -5,7 +5,6 @@ import { CounterStoreContext } from '../variables/store';
 import CookieClik from './CookieClik';
 import { observer } from 'mobx-react-lite'
 
-
 const CookieScreen = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
    
@@ -37,6 +36,6 @@ const Level = styled.Text({
     fontSize: 28,
     fontWeight: 'bold',
     position: 'absolute',
-    top: 80
+    top: 100
 })
 export default CookieScreen
