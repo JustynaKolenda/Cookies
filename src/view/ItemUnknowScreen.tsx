@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/native';
+
 interface ItemP {
     uri: string
 }
 
-const Item = ({ uri }:ItemP) => (
+const ItemUnknow = ({ uri }:ItemP) => (
     <ClickAchiev>
       <AchievementsImage source={{uri:uri}}/>
     </ClickAchiev>
 );
  
 
-const ClickAchiev = styled.TouchableOpacity({
+const ClickAchiev = styled.View({
     width: 60,
     height: 60,
     borderWidth: 2,
@@ -26,4 +27,4 @@ const AchievementsImage = styled.Image({
     height: '80%',
 })
 
-export default Item
+export default ItemUnknow

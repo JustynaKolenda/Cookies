@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, FlatList, Dimensions, SafeAreaView } from 'react-native';
 import { DATA } from '../variables/listOfAchievments';
 import styled from 'styled-components/native';
-import Item from './ItemScreen';
+import ItemUnknow from './ItemUnknowScreen';
+import { CounterStoreContext } from '../variables/store';
+import { TypeName } from '../variables/TypeName';
+import ItemKnow from './ItemKnowScreen';
 
 const Achievements = () => {
-  const renderItem = ({ item }:any) => (
-    <Item uri={item.uri} />
-  );
+  const CounterStore = useContext(CounterStoreContext)
+
+  const checkAchievements = (item:any)=> {
+    switch(item.type){
+      case TypeName.LEVEL:
+        return item.count < CounterStore.level 
+      case TypeName.COOKIES:
+        return item.count < CounterStore.count 
+      default:
+        console.log('Unknown achievements')
+    }
+  }
+
+  const renderItem = ({ item }:any) => {
+    return (checkAchievements(item))?
+    <ItemKnow uri={item.uri} item={item} />
+    :
+    <ItemUnknow uri={'ic_question'} />
+  };
   const separator = () => (<Separator/>)
 
   return (
