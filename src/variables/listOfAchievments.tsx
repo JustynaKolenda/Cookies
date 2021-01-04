@@ -2,6 +2,11 @@ export const DATA = [
     {
       id: '1',
       uri: 'ic_question',
+      title: '',
+      description: '',
+      type: '',
+      count: '',
+      
     },
     {
       id: '2',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Dimensions } from 'react-native';
+import { View, FlatList, Dimensions, SafeAreaView } from 'react-native';
 import { DATA } from '../variables/listOfAchievments';
 import styled from 'styled-components/native';
 import Item from './ItemScreen';
@@ -11,17 +11,19 @@ const Achievements = () => {
   const separator = () => (<Separator/>)
 
   return (
-    <ViewGroup>
-      <FlatList
-        style={{backgroundColor:'#000000', }}
-        ItemSeparatorComponent={separator}
-        data={DATA}
-        keyExtractor={(item)=>item.id}
-        numColumns={5}
-        horizontal={false}
-        renderItem={renderItem}
-      />
-    </ViewGroup>
+    <SafeAreaView>
+      <ViewGroup>
+        <FlatList
+          style={{backgroundColor:'#000000', }}
+          ItemSeparatorComponent={separator}
+          data={DATA}
+          keyExtractor={(item)=>item.id}
+          numColumns={5}
+          horizontal={false}
+          renderItem={renderItem}
+        />
+      </ViewGroup>
+    </SafeAreaView>
   );
 }
 
