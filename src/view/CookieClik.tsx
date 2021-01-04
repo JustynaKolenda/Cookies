@@ -3,7 +3,6 @@ import { Dimensions, Animated, View, Text, PanResponder,} from 'react-native';
 import styled from 'styled-components/native';
 import { observer } from 'mobx-react-lite'
 import { CounterStoreContext } from '../variables/store';
-import { transform } from '@babel/core';
  
 const {width, height} = Dimensions.get('window')
 
@@ -32,7 +31,7 @@ const CookieClik = observer(() => {
     });
 
     return(
-        <Animated.View style = {{transform: position.getTranslateTransform()}} {...panResponder.panHandlers}>
+        <Animated.View style ={{transform: position.getTranslateTransform() as any}} {...panResponder.panHandlers}>
             <Click onPress={handleChange}>
                 <Cookie source={{uri: 'bigcookie'}}/> 
             </Click>

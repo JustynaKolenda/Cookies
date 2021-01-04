@@ -9,11 +9,13 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
-  StatusBar,
+  FlatList,
+  StatusBar, View,
 } from 'react-native';
 import CookieScreen from './src/view/CookieScreen';
 import { CounterStoreContext, CounterStore } from './src/variables/store';
+import Achievements from './src/view/AchievementsScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 declare const global: {HermesInternal: null | {}};
 const store = new CounterStore()
@@ -21,9 +23,9 @@ const store = new CounterStore()
 const App = () => {
   return (
     <CounterStoreContext.Provider value={store}>
-      <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-          <CookieScreen/>
+        {/* <CookieScreen/> */}
+        <Achievements/>
       </SafeAreaView>
     </CounterStoreContext.Provider>
   );
