@@ -17,26 +17,22 @@ const CookieClik = observer(() => {
     const position = new Animated.ValueXY();
     const panResponder = PanResponder.create({
         onMoveShouldSetPanResponder: () => true,
-        onPanResponderGrant: () => {
-            position.setOffset({
-            x: (position.x as any)._value,
-            y: (position.y as any)._value,
-          });
-          position.setValue({ x:0, y:0});
-        },
+        onPanResponderGrant: (e, gestureState) => {
+            position.setValue({x: 0, y: 0});
+         },
         onPanResponderMove: (event, gesture) => {
             position.setValue({ x: gesture.dx, y: gesture.dy });
        },
         onPanResponderRelease: () => {
             Animated.spring(position, {
                 toValue: 0,
-                useNativeDriver: false 
+                useNativeDriver: true 
               }).start();
         }
     });
 
     return(
-        <Animated.View style = {position.getLayout()} {...panResponder.panHandlers}>
+        <Animated.View style = {{transform: position.getTranslateTransform()}} {...panResponder.panHandlers}>
             <Click onPress={handleChange}>
                 <Cookie source={{uri: 'bigcookie'}}/> 
             </Click>
