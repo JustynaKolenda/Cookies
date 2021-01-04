@@ -4,12 +4,11 @@ import { DATA } from '../variables/listOfAchievments';
 import styled from 'styled-components/native';
 import Item from './ItemScreen';
 
-
 const Achievements = () => {
   const renderItem = ({ item }:any) => (
     <Item uri={item.uri} />
   );
-  const separator = () => (<View style={{paddingTop:10,}}/>)
+  const separator = () => (<Separator/>)
 
   return (
     <ViewGroup>
@@ -32,6 +31,10 @@ const ViewGroup = styled.View({
   backgroundColor:'#000000',
   height:height,
   padding:20
+})
+
+const Separator = styled.View({
+  paddingTop:10
 })
 
 export default Achievements;

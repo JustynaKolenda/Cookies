@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
+interface ItemP {
+    uri: string
+}
 
-const Item = ({ uri }:any) => (
+const Item = ({ uri }:ItemP) => (
     <ClickAchiev>
       <AchievementsImage source={{uri:uri}}/>
     </ClickAchiev>
