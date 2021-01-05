@@ -17,9 +17,9 @@ const AchievmentInfo = (props:IAchievmentInfoP) => {
                 <Title>{item.title}</Title>
             </TitleView>
             <AchievementsImage source={{uri: item.uri}}/>
-            <View style={{alignItems:'center',   width: '65%',}}>
+            <ViewDescription>
                 <DescriptionText>{item.description}</DescriptionText>
-            </View>
+            </ViewDescription>
         </ClickAchiev>
     )
 };
@@ -54,6 +54,11 @@ const AchievementsImage = styled.Image({
     width: 60,
     height: 60,
     marginBottom: 20
+})
+
+const ViewDescription = styled.View({
+    alignItems:'center',
+    width: '65%',
 })
 
 const DescriptionText = styled.Text({

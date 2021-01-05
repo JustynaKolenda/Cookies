@@ -52,7 +52,8 @@ const ViewGroup = styled.View({
   alignItems:"center",
   backgroundColor:'#000000',
   height:height,
-  padding:20
+  paddingLeft: 10,
+  paddingTop: 20
 })
 
 const Separator = styled.View({
