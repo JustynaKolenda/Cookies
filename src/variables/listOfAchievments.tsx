@@ -4,7 +4,7 @@ export const DATA = [
     {
       id: '1',
       uri: 'ic_achievement',
-      title: 'Your first baking',
+      title: 'Wake and bake',
       description: 'You baked Your first cookie',
       type: TypeName.LEVEL,
       count: 1,

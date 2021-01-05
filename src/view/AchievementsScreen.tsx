@@ -6,11 +6,12 @@ import ItemUnknow from './ItemUnknowScreen';
 import { CounterStoreContext } from '../variables/store';
 import { TypeName } from '../variables/TypeName';
 import ItemKnow from './ItemKnowScreen';
+import { ItemType } from '../variables/types';
 
 const Achievements = () => {
   const CounterStore = useContext(CounterStoreContext)
 
-  const checkAchievements = (item:any)=> {
+  const checkAchievements = (item:ItemType)=> {
     switch(item.type){
       case TypeName.LEVEL:
         return item.count < CounterStore.level 
@@ -23,7 +24,7 @@ const Achievements = () => {
 
   const renderItem = ({ item }:any) => {
     return (checkAchievements(item))?
-    <ItemKnow uri={item.uri} item={item} />
+    <ItemKnow item={item} uri={item.uri} />
     :
     <ItemUnknow uri={'ic_question'} />
   };

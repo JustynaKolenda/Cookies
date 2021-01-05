@@ -2,25 +2,21 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import styled from 'styled-components/native';
 import { NavigationName } from '../variables/NavigationName';
-interface ItemP {
-    item: {
-        id: string,
-        uri: string,
-        title: string,
-        description: string,
-        type: string,
-        count: number,
-    },
+import { ItemType } from '../variables/types';
+interface IntItem {
+    item: ItemType, 
     uri: string
-    
 }
 
-const ItemKnow = (props:ItemP) => {
+const ItemKnow = ({item}:IntItem) => {
     const navigation = useNavigation();
+    const navToDescription = () => {
+        navigation.navigate(NavigationName.DESCRIPTION, {item})
+    }
 
     return( 
-        <ClickAchiev onPress={() => navigation.navigate(NavigationName.DESCRIPTION)}>
-            <AchievementsImage source={{uri: props.item.uri}}/>
+        <ClickAchiev onPress={navToDescription}>
+            <AchievementsImage source={{uri: item.uri}}/>
         </ClickAchiev>
    )
 };
