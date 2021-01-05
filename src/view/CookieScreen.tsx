@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import {Text, View,} from 'react-native';
+import {Text, SafeAreaView,} from 'react-native';
 import styled from 'styled-components/native';
 import { CounterStoreContext } from '../variables/store';
 import CookieClik from './CookieClik';
@@ -9,11 +9,13 @@ const CookieScreen = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
    
     return(
-        <ViewCookie>
-            <NumClik>{CounterStore.count} cookies</NumClik>
-            <Level>{CounterStore.level} level</Level>
-            <CookieClik/>
-        </ViewCookie>
+        <SafeAreaView>
+            <ViewCookie>
+                <NumClik>{CounterStore.count} cookies</NumClik>
+                <Level>{CounterStore.level} level</Level>
+                <CookieClik/>
+            </ViewCookie>
+        </SafeAreaView>
     )
 })
 
