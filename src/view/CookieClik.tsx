@@ -3,15 +3,29 @@ import { Dimensions, Animated, View, Text, PanResponder,} from 'react-native';
 import styled from 'styled-components/native';
 import { observer } from 'mobx-react-lite'
 import { CounterStoreContext } from '../variables/store';
-import { interpolate } from 'react-native-reanimated';
  
 const {width, height} = Dimensions.get('window')
 
 
 const CookieClik = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
+
+    const springValue = new Animated.Value(0.3)
+    const spring = ()=>{
+        springValue.setValue(0.8)
+        Animated.spring(
+          springValue,{
+            toValue: 1,
+            friction: 1,
+            useNativeDriver: true 
+          }
+        ).start()
+    } 
+
     const handleChange = ()=> {
-        CounterStore.increment()
+        CounterStore.increment();
+        spring()
+       
     }
 
     const position = new Animated.ValueXY();
@@ -31,18 +45,6 @@ const CookieClik = observer(() => {
               }).start();
         }
     });
-
-    const springValue = new Animated.Value(0.3)
-    const spring = ()=>{
-        springValue.setValue(0.3)
-        Animated.spring(
-          springValue,{
-            toValue: 1,
-            friction: 1,
-            useNativeDriver: true 
-          }
-        ).start()
-    } 
 
     useEffect(()=>{
         spring()
