@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { Dimensions, Animated, View, Text, PanResponder,} from 'react-native';
 import styled from 'styled-components/native';
 import { observer } from 'mobx-react-lite'
@@ -9,8 +9,23 @@ const {width, height} = Dimensions.get('window')
 
 const CookieClik = observer(() => {
     const CounterStore = useContext(CounterStoreContext)
+
+    const springValue = new Animated.Value(0.3)
+    const spring = ()=>{
+        springValue.setValue(0.8)
+        Animated.spring(
+          springValue,{
+            toValue: 1,
+            friction: 1,
+            useNativeDriver: true 
+          }
+        ).start()
+    } 
+
     const handleChange = ()=> {
-        CounterStore.increment()
+        CounterStore.increment();
+        spring()
+       
     }
 
     const position = new Animated.ValueXY();
@@ -24,14 +39,19 @@ const CookieClik = observer(() => {
        },
         onPanResponderRelease: () => {
             Animated.spring(position, {
-                toValue: 0,
+                toValue: 1,
+                friction: 1,
                 useNativeDriver: true 
               }).start();
         }
     });
 
+    useEffect(()=>{
+        spring()
+    },[])
+
     return(
-        <Animated.View style ={{transform: position.getTranslateTransform() as any}} {...panResponder.panHandlers}>
+        <Animated.View style ={{transform: [...position.getTranslateTransform() as any,{scale: springValue}]}} {...panResponder.panHandlers}>
             <Click onPress={handleChange}>
                 <Cookie source={{uri: 'bigcookie'}}/> 
             </Click>

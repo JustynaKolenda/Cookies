@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CookieScreen from '../view/CookieScreen';
 import AchievementsNavigation from './AchievmentsNavigation';
 import { NavigationName } from '../variables/NavigationName';
+import MyTabBar from './MyTabBar';
 
 const Tab = createBottomTabNavigator();
 
