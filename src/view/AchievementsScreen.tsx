@@ -7,8 +7,9 @@ import { CounterStoreContext } from '../variables/store';
 import { TypeName } from '../variables/TypeName';
 import ItemKnow from './ItemKnowScreen';
 import { ItemType } from '../variables/types';
+import { observer } from 'mobx-react-lite';
 
-const Achievements = () => {
+const Achievements = observer(() => {
   const CounterStore = useContext(CounterStoreContext)
 
   const checkAchievements = (item:ItemType)=> {
@@ -45,7 +46,7 @@ const Achievements = () => {
       </ViewGroup>
     </SafeAreaView>
   );
-}
+})
 
 const {width, height} = Dimensions.get('window')
 const ViewGroup = styled.View({
