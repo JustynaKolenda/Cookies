@@ -11,13 +11,16 @@ import { observer } from 'mobx-react-lite';
 
 const Achievements = observer(() => {
   const CounterStore = useContext(CounterStoreContext)
-
+  const cookieCount = CounterStore.count;
+  const level = CounterStore.level;
+  
+  
   const checkAchievements = (item:ItemType)=> {
     switch(item.type){
       case TypeName.LEVEL:
-        return item.count < CounterStore.level 
+        return item.count < level 
       case TypeName.COOKIES:
-        return item.count < CounterStore.count 
+        return item.count < cookieCount 
       default:
         console.log('Unknown achievements')
     }
